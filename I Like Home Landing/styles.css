@@ -28,6 +28,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  overflow-x: hidden;
   background: var(--soft-ivory);
   color: var(--brown-luxury);
 }
@@ -157,6 +158,10 @@ img {
   align-items: end;
 }
 
+.finder-card {
+  width: 100%;
+}
+
 .hero-copy {
   max-width: 760px;
   color: var(--soft-ivory);
@@ -233,6 +238,7 @@ p {
   font-weight: 800;
   cursor: pointer;
   transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, opacity 160ms ease;
+  text-align: center;
 }
 
 .button:hover {
@@ -323,6 +329,7 @@ textarea {
   color: var(--brown-luxury);
   outline: 0;
   text-transform: none;
+  min-width: 0;
 }
 
 input:focus,
@@ -837,8 +844,9 @@ textarea {
 
 @media (max-width: 680px) {
   .site-header {
-    inset: 10px;
+    inset: 10px 12px auto;
     border-radius: 24px;
+    padding: 10px 12px;
   }
 
   .brand img {
@@ -849,6 +857,7 @@ textarea {
   .nav-action {
     padding: 10px 12px;
     font-size: 0.76rem;
+    white-space: nowrap;
   }
 
   .hero-content,
@@ -860,8 +869,48 @@ textarea {
     width: min(100% - 28px, 1180px);
   }
 
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-content {
+    min-height: auto;
+    padding: 124px 0 46px;
+    gap: 24px;
+  }
+
   h1 {
-    font-size: clamp(3.2rem, 18vw, 5rem);
+    max-width: 7ch;
+    font-size: clamp(3rem, 17vw, 4.7rem);
+    line-height: 0.94;
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 10vw, 3rem);
+    line-height: 1.04;
+  }
+
+  .hero-lede {
+    font-size: 0.98rem;
+    line-height: 1.58;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+  }
+
+  .finder-card,
+  .contact-form,
+  .chat-shell,
+  .admin-card,
+  .property-form {
+    border-radius: 22px;
   }
 
   .hero-overlay {
@@ -904,5 +953,105 @@ textarea {
 
   .admin-tabs {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    justify-content: center;
+  }
+
+  .nav-action {
+    display: none;
+  }
+
+  .brand img {
+    width: min(190px, 64vw);
+    max-height: 56px;
+  }
+
+  .split-section,
+  .properties,
+  .contact-section,
+  .assistant-section,
+  .admin-panel {
+    padding: 58px 0;
+  }
+
+  .proof-strip {
+    padding: 22px 16px;
+  }
+
+  .sell-band {
+    padding: 34px 18px;
+  }
+
+  .admin-content,
+  .admin-card,
+  .contact-form,
+  .finder-card,
+  .property-form {
+    padding: 16px;
+  }
+
+  .admin-tabs {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-tabs button {
+    text-align: center;
+  }
+
+  .card-title-row,
+  .modal-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .modal-head {
+    position: relative;
+    padding-right: 48px;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .chat-log {
+    min-height: 280px;
+    padding: 14px;
+  }
+
+  .message {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-content,
+  .split-section,
+  .properties,
+  .contact-section,
+  .assistant-section,
+  .admin-panel {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .site-header {
+    inset: 8px 10px auto;
+  }
+
+  h1 {
+    font-size: clamp(2.72rem, 16vw, 3.5rem);
+  }
+
+  .mode-switch button,
+  .button,
+  input,
+  select,
+  textarea {
+    font-size: 0.88rem;
   }
 }
