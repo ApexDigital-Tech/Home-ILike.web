@@ -74,11 +74,10 @@ img {
 }
 
 .brand img {
-  width: clamp(150px, 18vw, 220px);
+  width: clamp(168px, 18vw, 232px);
   height: auto;
-  max-height: 48px;
+  max-height: 58px;
   object-fit: contain;
-  border-radius: 2px;
   filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.18));
 }
 
@@ -785,8 +784,8 @@ textarea {
 }
 
 .site-footer img {
-  width: 210px;
-  max-height: 72px;
+  width: 230px;
+  max-height: 88px;
   object-fit: contain;
 }
 
@@ -843,8 +842,8 @@ textarea {
   }
 
   .brand img {
-    width: 140px;
-    max-height: 42px;
+    width: 152px;
+    max-height: 50px;
   }
 
   .nav-action {
