@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I Like Home | Gestion inmobiliaria</title>
+    <meta
+      name="description"
+      content="I Like Home gestiona compra, venta, citas, CRM, equipo y asesoria virtual inmobiliaria."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,800;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Navegacion principal">
+      <a class="brand" href="#inicio" aria-label="I Like Home inicio">
+        <img src="./assets/logo.svg" alt="I Like Home" />
+      </a>
+      <nav class="main-nav">
+        <a href="#comprar">Comprar</a>
+        <a href="#vender">Vender</a>
+        <a href="#propiedades">Propiedades</a>
+        <a href="#asesora">Asesora IA</a>
+        <a href="#panel-admin">PanelAdmin</a>
+      </nav>
+      <a class="nav-action" href="#agenda">Agendar cita</a>
+    </header>
+
+    <main id="inicio">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85"
+            alt=""
+          />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <div class="hero-copy">
+            <p class="eyebrow">Gestion inmobiliaria integral</p>
+            <h1 id="hero-title">I Like Home</h1>
+            <p class="hero-lede">
+              Compra, vende y agenda visitas con un equipo que combina gestion comercial,
+              CRM, seguimiento por WhatsApp y una asesora virtual disponible 24/7.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#comprar">Quiero comprar</a>
+              <a class="button secondary" href="#vender">Quiero vender</a>
+              <button class="button ghost" type="button" data-open-admin>PanelAdmin</button>
+            </div>
+          </div>
+
+          <form class="finder-card" data-form="lead" aria-label="Buscador de propiedades">
+            <div class="mode-switch" aria-label="Tipo de busqueda">
+              <button class="active" type="button" data-mode="Comprar">Comprar</button>
+              <button type="button" data-mode="Vender">Vender</button>
+            </div>
+            <input type="hidden" name="interest" value="Comprar" data-interest-field />
+            <label>
+              Nombre
+              <input name="name" type="text" placeholder="Tu nombre" required />
+            </label>
+            <label>
+              WhatsApp
+              <input name="phone" type="tel" placeholder="+591" required />
+            </label>
+            <label>
+              Zona de interes
+              <input name="zone" type="text" value="Santa Cruz, Bolivia" />
+            </label>
+            <div class="form-grid">
+              <label>
+                Tipo
+                <select name="property_type">
+                  <option>Casa</option>
+                  <option>Departamento</option>
+                  <option>Terreno</option>
+                  <option>Oficina</option>
+                </select>
+              </label>
+              <label>
+                Presupuesto
+                <select name="budget">
+                  <option>USD 80k - 180k</option>
+                  <option>USD 180k - 350k</option>
+                  <option>USD 350k+</option>
+                </select>
+              </label>
+            </div>
+            <button class="button form-button" type="submit">Registrar interes</button>
+            <p class="form-note" data-status="lead"></p>
+          </form>
+        </div>
+      </section>
+
+      <section class="proof-strip" aria-label="Indicadores">
+        <div>
+          <strong data-stat="properties">0</strong>
+          <span>propiedades activas</span>
+        </div>
+        <div>
+          <strong data-stat="appointments">0</strong>
+          <span>citas registradas</span>
+        </div>
+        <div>
+          <strong>24/7</strong>
+          <span>asesora virtual</span>
+        </div>
+      </section>
+
+      <section class="split-section" id="comprar">
+        <div class="section-copy">
+          <p class="eyebrow">Para compradores</p>
+          <h2>Propiedades elegidas por como se viven, no solo por metros.</h2>
+          <p>
+            Te guiamos entre barrios, presupuestos, documentacion, negociacion y
+            visitas para que tomes una decision segura.
+          </p>
+        </div>
+        <div class="journey-panel">
+          <article>
+            <span>01</span>
+            <h3>Mapa de estilo de vida</h3>
+            <p>Ubicacion, movilidad, colegios, trabajo y ritmo diario en una misma lectura.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Visitas con criterio</h3>
+            <p>Agenda citas con propiedades que cumplen precio, estado legal y potencial.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>Oferta acompanada</h3>
+            <p>Negociacion y cierre con seguimiento del equipo y registro en CRM.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="sell-band" id="vender">
+        <div>
+          <p class="eyebrow">Para propietarios</p>
+          <h2>Vende con precio defendible y presentacion que enamora.</h2>
+          <p>
+            Carga tu propiedad, agrega hasta seis fotografias por URL y registra
+            caracteristicas comerciales para que el equipo la gestione desde el panel.
+          </p>
+        </div>
+        <button class="button primary" type="button" data-open-property>Agregar propiedad</button>
+      </section>
+
+      <section class="properties" id="propiedades" aria-labelledby="properties-title">
+        <div class="section-heading">
+          <p class="eyebrow">Seleccion I Like Home</p>
+          <h2 id="properties-title">Inventario comercial conectado a Supabase.</h2>
+          <p>
+            Las propiedades publicadas desde el panel aparecen aqui automaticamente.
+          </p>
+        </div>
+        <div class="property-grid" id="propertiesGrid"></div>
+      </section>
+
+      <section class="contact-section" id="agenda">
+        <div class="contact-copy">
+          <p class="eyebrow">Calendario de citas</p>
+          <h2>Agenda una visita, valuacion o llamada comercial.</h2>
+          <p>
+            Cada solicitud queda registrada para reporte de citas y seguimiento por CRM.
+          </p>
+        </div>
+        <form class="contact-form" data-form="appointment">
+          <label>
+            Nombre
+            <input name="client_name" type="text" placeholder="Tu nombre" required />
+          </label>
+          <label>
+            WhatsApp
+            <input name="phone" type="tel" placeholder="+591" required />
+          </label>
+          <div class="form-grid">
+            <label>
+              Fecha
+              <input name="date" type="date" required />
+            </label>
+            <label>
+              Hora
+              <input name="time" type="time" required />
+            </label>
+          </div>
+          <label>
+            Tipo de cita
+            <select name="appointment_type">
+              <option>Visita de propiedad</option>
+              <option>Valuacion para venta</option>
+              <option>Llamada de asesoria</option>
+            </select>
+          </label>
+          <label>
+            Mensaje
+            <textarea name="notes" placeholder="Barrio, presupuesto, propiedad o fecha ideal"></textarea>
+          </label>
+          <button class="button form-button" type="submit">Agendar cita</button>
+          <p class="form-note" data-status="appointment"></p>
+        </form>
+      </section>
+
+      <section class="assistant-section" id="asesora">
+        <div class="assistant-intro">
+          <p class="eyebrow">Asesora virtual IA 24/7</p>
+          <h2>Atiende preguntas, recomienda propiedades y registra seguimientos.</h2>
+          <p>
+            La asesora usa inventario, politicas comerciales y datos capturados en la web.
+            Esta version funciona en navegador y queda lista para conectar un modelo IA externo.
+          </p>
+        </div>
+        <div class="chat-shell">
+          <div class="chat-log" id="chatLog" aria-live="polite"></div>
+          <form class="chat-form" data-form="assistant">
+            <input
+              name="message"
+              type="text"
+              placeholder="Pregunta por una propiedad, cita, precio o politica..."
+              autocomplete="off"
+              required
+            />
+            <button class="button primary" type="submit">Enviar</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="admin-panel" id="panel-admin">
+        <div class="admin-topline">
+          <div>
+            <p class="eyebrow">PanelAdmin</p>
+            <h2>Gestion integral de I Like Home.</h2>
+          </div>
+          <div class="admin-login">
+            <input id="adminEmail" type="email" value="apexdigital70@gmail.com" />
+            <button class="button primary" type="button" data-admin-login>Entrar</button>
+          </div>
+        </div>
+
+        <div class="admin-shell" data-admin-shell>
+          <aside class="admin-tabs" aria-label="Secciones de administracion">
+            <button class="active" type="button" data-admin-tab="dashboard">Resumen</button>
+            <button type="button" data-admin-tab="properties">Propiedades</button>
+            <button type="button" data-admin-tab="calendar">Citas</button>
+            <button type="button" data-admin-tab="crm">CRM WhatsApp</button>
+            <button type="button" data-admin-tab="team">Equipo</button>
+            <button type="button" data-admin-tab="policies">Politicas IA</button>
+          </aside>
+
+          <div class="admin-content">
+            <section class="admin-view active" data-admin-view="dashboard">
+              <div class="metric-grid">
+                <article><span>Inventario</span><strong data-stat="propertiesAdmin">0</strong></article>
+                <article><span>Leads CRM</span><strong data-stat="leads">0</strong></article>
+                <article><span>Citas</span><strong data-stat="appointmentsAdmin">0</strong></article>
+                <article><span>Tareas equipo</span><strong data-stat="tasks">0</strong></article>
+              </div>
+              <div class="admin-card">
+                <h3>Estado de Supabase</h3>
+                <p id="supabaseStatus">Conectando...</p>
+              </div>
+            </section>
+
+            <section class="admin-view" data-admin-view="properties">
+              <div class="admin-card">
+                <div class="card-title-row">
+                  <h3>Agregar propiedad a la venta</h3>
+                  <button class="button primary" type="button" data-open-property>Nueva propiedad</button>
+                </div>
+                <div class="table-list" id="adminProperties"></div>
+              </div>
+            </section>
+
+            <section class="admin-view" data-admin-view="calendar">
+              <div class="admin-card">
+                <h3>Reporte de citas</h3>
+                <div class="table-list" id="appointmentsList"></div>
+              </div>
+            </section>
+
+            <section class="admin-view" data-admin-view="crm">
+              <div class="admin-card">
+                <h3>CRM dinamico vinculado a WhatsApp</h3>
+                <div class="table-list" id="leadsList"></div>
+              </div>
+            </section>
+
+            <section class="admin-view" data-admin-view="team">
+              <div class="admin-card">
+                <h3>Planificador de equipo</h3>
+                <form class="inline-form" data-form="task">
+                  <input name="title" type="text" placeholder="Tarea comercial" required />
+                  <input name="owner" type="text" placeholder="Responsable" required />
+                  <input name="due_date" type="date" required />
+                  <select name="status">
+                    <option>Pendiente</option>
+                    <option>En proceso</option>
+                    <option>Cerrada</option>
+                  </select>
+                  <button class="button form-button" type="submit">Agregar</button>
+                </form>
+                <div class="table-list" id="tasksList"></div>
+              </div>
+            </section>
+
+            <section class="admin-view" data-admin-view="policies">
+              <div class="admin-card">
+                <h3>Informacion y politicas para la Asesora IA</h3>
+                <form data-form="policies">
+                  <label>
+                    Politicas de empresa
+                    <textarea name="content" id="policiesContent"></textarea>
+                  </label>
+                  <button class="button form-button" type="submit">Guardar politicas</button>
+                </form>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="modal" id="propertyModal">
+      <form class="property-form" data-form="property">
+        <div class="modal-head">
+          <div>
+            <p class="eyebrow">Inventario comercial</p>
+            <h2>Agregar propiedad</h2>
+          </div>
+          <button class="close-button" type="button" data-close-modal aria-label="Cerrar">x</button>
+        </div>
+
+        <div class="form-grid three">
+          <label>Operacion
+            <select name="operation"><option>Venta</option><option>Alquiler</option><option>Anticretico</option></select>
+          </label>
+          <label>Estado
+            <select name="status"><option>Disponible</option><option>Reservada</option><option>Vendida</option></select>
+          </label>
+          <label>Destacada
+            <select name="featured"><option value="true">Si</option><option value="false">No</option></select>
+          </label>
+        </div>
+
+        <label>Titulo comercial <input name="title" type="text" placeholder="Casa Patio Norte" required /></label>
+        <label>Descripcion comercial <textarea name="description" placeholder="Narrativa de venta, estilo de vida y diferencial"></textarea></label>
+
+        <div class="form-grid three">
+          <label>Tipo <input name="property_type" type="text" placeholder="Casa" /></label>
+          <label>Zona <input name="zone" type="text" placeholder="Equipetrol Norte" /></label>
+          <label>Direccion <input name="address" type="text" placeholder="Direccion referencial" /></label>
+          <label>Precio USD <input name="price" type="number" min="0" placeholder="248000" /></label>
+          <label>Dormitorios <input name="bedrooms" type="number" min="0" /></label>
+          <label>Banos <input name="bathrooms" type="number" min="0" /></label>
+          <label>Parqueos <input name="parking" type="number" min="0" /></label>
+          <label>Construidos m2 <input name="built_area" type="number" min="0" /></label>
+          <label>Terreno m2 <input name="lot_area" type="number" min="0" /></label>
+        </div>
+
+        <label>Caracteristicas comerciales
+          <textarea name="features" placeholder="Piscina, terraza, churrasquera, suite master, cerca de colegios"></textarea>
+        </label>
+        <label>Notas internas
+          <textarea name="commercial_notes" placeholder="Comision, urgencia del propietario, margen de negociacion"></textarea>
+        </label>
+
+        <div class="form-grid two">
+          <label>Asesor <input name="agent_name" type="text" placeholder="Nombre del asesor" /></label>
+          <label>WhatsApp asesor <input name="agent_whatsapp" type="tel" placeholder="+591" /></label>
+        </div>
+
+        <div class="photo-grid" aria-label="Fotografias por URL">
+          <label>Foto URL 1 <input name="photo_1" type="url" placeholder="https://..." /></label>
+          <label>Foto URL 2 <input name="photo_2" type="url" placeholder="https://..." /></label>
+          <label>Foto URL 3 <input name="photo_3" type="url" placeholder="https://..." /></label>
+          <label>Foto URL 4 <input name="photo_4" type="url" placeholder="https://..." /></label>
+          <label>Foto URL 5 <input name="photo_5" type="url" placeholder="https://..." /></label>
+          <label>Foto URL 6 <input name="photo_6" type="url" placeholder="https://..." /></label>
+        </div>
+
+        <button class="button form-button" type="submit">Guardar propiedad</button>
+        <p class="form-note" data-status="property"></p>
+      </form>
+    </dialog>
+
+    <footer class="site-footer">
+      <img src="./assets/logo.svg" alt="I Like Home" />
+      <span>Compra, venta, citas, CRM y asesoria virtual para gestion inmobiliaria.</span>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>

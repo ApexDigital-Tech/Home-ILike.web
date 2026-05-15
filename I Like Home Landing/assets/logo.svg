@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 230" role="img" aria-labelledby="title desc">
+  <title id="title">I Like Home</title>
+  <desc id="desc">Logotipo de gestion inmobiliaria I Like Home</desc>
+  <defs>
+    <linearGradient id="brown" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#2F241F"/>
+      <stop offset="1" stop-color="#1f1714"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#C67A46"/>
+      <stop offset="1" stop-color="#D88D4B"/>
+    </linearGradient>
+    <linearGradient id="olive" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#6B7C5E"/>
+      <stop offset="1" stop-color="#4d5e46"/>
+    </linearGradient>
+  </defs>
+  <rect width="920" height="230" fill="none"/>
+  <g transform="translate(375 14)">
+    <path d="M28 76 96 36a24 24 0 0 1 25 0l68 40a24 24 0 0 1 12 21v86h-62v-83a10 10 0 0 0-10-10h-42a10 10 0 0 0-10 10v83H16V97a24 24 0 0 1 12-21Z" fill="url(#brown)"/>
+    <path d="M83 45V10a10 10 0 0 1 10-10h29a10 10 0 0 1 10 10v42l-39 23Z" fill="url(#brown)"/>
+    <path d="M214 0 300 53a17 17 0 0 1 8 15v115h-62V89a21 21 0 0 0-10-18l-22-13Z" fill="url(#gold)"/>
+    <path d="M87 183v-82a10 10 0 0 1 10-10h29a10 10 0 0 1 10 10v82Z" fill="#F7F3EE"/>
+  </g>
+  <g transform="translate(28 143)">
+    <text x="0" y="0" fill="#2F241F" font-family="Montserrat, Arial, sans-serif" font-size="58" font-weight="800" font-style="italic" letter-spacing="1">I LIKE</text>
+    <text x="486" y="0" fill="url(#olive)" font-family="Montserrat, Arial, sans-serif" font-size="58" font-weight="800" font-style="italic" letter-spacing="1">HOME</text>
+    <rect x="286" y="-49" width="16" height="30" fill="url(#gold)"/>
+    <rect x="0" y="54" width="84" height="3" fill="#2F241F"/>
+    <text x="118" y="64" fill="#2F241F" font-family="Montserrat, Arial, sans-serif" font-size="25" font-weight="500" letter-spacing="16">GESTION INMOBILIARIA</text>
+    <rect x="730" y="54" width="84" height="3" fill="#2F241F"/>
+  </g>
+</svg>
